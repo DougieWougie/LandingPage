@@ -20,10 +20,11 @@ docker run -p 8080:80 dougie-landing-page
 
 Open http://localhost:8080
 
-To run on a custom port, set the `PORT` environment variable:
+To build for a custom port, pass the `PORT` build argument:
 
 ```bash
-docker run -e PORT=3000 -p 3000:3000 dougie-landing-page
+docker build --build-arg PORT=3000 -t dougie-landing-page .
+docker run -p 3000:3000 dougie-landing-page
 ```
 
 ## Editing Content

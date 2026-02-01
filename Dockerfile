@@ -8,8 +8,9 @@ RUN npm run build
 
 # Production stage
 FROM nginx:alpine
-ENV PORT=80
+ARG PORT=80
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+RUN sed -i "s/listen 80;/listen ${PORT};/" /etc/nginx/conf.d/default.conf
 EXPOSE ${PORT}
 CMD ["nginx", "-g", "daemon off;"]
