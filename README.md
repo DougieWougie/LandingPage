@@ -1,16 +1,49 @@
-# React + Vite
+# Dougie Richardson — Personal Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal brand hub built with React and Vite. Features a bold, creative design with a colour palette derived from the profile picture, light/dark mode toggle, and markdown-driven content.
 
-Currently, two official plugins are available:
+## Running Locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Open http://localhost:5173
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Docker
 
-## Expanding the ESLint configuration
+```bash
+docker build -t dougie-landing-page .
+docker run -p 8080:80 dougie-landing-page
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open http://localhost:8080
+
+## Editing Content
+
+All text is driven by markdown files in `public/content/`:
+
+| File | Section |
+|------|---------|
+| `public/content/intro.md` | Hero introduction text |
+| `public/content/skills.md` | Skills & technologies badges |
+
+Edit these files and rebuild (or just save during `npm run dev`) to update the site.
+
+## Project Structure
+
+```
+src/
+├── components/     # React components with co-located CSS
+├── hooks/          # useTheme, useMarkdown, useInView
+├── App.jsx         # Root component
+└── index.css       # Theme system & global styles
+public/
+├── content/        # Markdown content files
+└── ProfilePicture.png
+```
+
+## License
+
+[AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
