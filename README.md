@@ -20,6 +20,12 @@ docker run -p 8080:80 dougie-landing-page
 
 Open http://localhost:8080
 
+To run on a custom port, set the `PORT` environment variable:
+
+```bash
+docker run -e PORT=3000 -p 3000:3000 dougie-landing-page
+```
+
 ## Editing Content
 
 All text is driven by markdown files in `public/content/`:
