@@ -1,0 +1,190 @@
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: var(--space-3xl) var(--space-xl);
+  overflow: hidden;
+}
+
+/* Animated background shapes */
+.hero__bg-shape {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  opacity: 0.08;
+  top: -200px;
+  right: -200px;
+  animation: floatShape 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero__bg-shape--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--olive) 0%, transparent 70%);
+  top: auto;
+  right: auto;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -10s;
+  animation-duration: 25s;
+}
+
+@keyframes floatShape {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(20px, 20px) scale(1.02); }
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Profile image */
+.hero__image-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+}
+
+.hero__image-decoration {
+  position: absolute;
+  inset: -12px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: linear-gradient(135deg, var(--gold), var(--olive), var(--terracotta));
+  animation: morphBlob 8s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.hero__image-ring {
+  position: absolute;
+  inset: -20px;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  border: 2px solid var(--gold);
+  opacity: 0.3;
+  animation: morphBlob 8s ease-in-out infinite reverse;
+}
+
+@keyframes morphBlob {
+  0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: morphBlob 8s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+/* Content */
+.hero__content {
+  text-align: center;
+}
+
+.hero__name {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__name-line {
+  display: block;
+}
+
+.hero__name-line--accent {
+  background: linear-gradient(135deg, var(--gold), var(--terracotta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__intro {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero__intro p {
+  margin-bottom: var(--space-md);
+}
+
+.hero__intro p:last-child {
+  margin-bottom: 0;
+}
+
+.hero__intro a {
+  color: var(--gold);
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.hero__intro a:hover {
+  border-color: var(--gold);
+}
+
+/* Scroll hint */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--space-xl);
+  color: var(--text-muted);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .hero__container {
+    flex-direction: row;
+    text-align: left;
+    gap: var(--space-3xl);
+  }
+
+  .hero__image-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero__content {
+    text-align: left;
+  }
+
+  .hero__intro {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__image-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+}

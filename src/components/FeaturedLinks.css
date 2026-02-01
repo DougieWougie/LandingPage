@@ -1,0 +1,111 @@
+.links {
+  padding: var(--space-4xl) var(--space-xl);
+  position: relative;
+}
+
+.links__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.links__heading {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  letter-spacing: -0.02em;
+}
+
+.links__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* Card */
+.links__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.links__card--visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--card-delay);
+}
+
+.links__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-color);
+  box-shadow: 0 20px 40px var(--shadow-strong), 0 0 0 1px var(--card-color);
+}
+
+/* Glow effect */
+.links__card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.links__card:hover .links__card-glow {
+  transform: scaleX(1);
+}
+
+.links__card-icon {
+  color: var(--card-color);
+  margin-bottom: var(--space-md);
+  transition: transform var(--transition-base);
+}
+
+.links__card:hover .links__card-icon {
+  transform: scale(1.1);
+}
+
+.links__card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.links__card-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.links__card-arrow {
+  position: absolute;
+  top: var(--space-xl);
+  right: var(--space-xl);
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: all var(--transition-base);
+}
+
+.links__card:hover .links__card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+  color: var(--card-color);
+}
+
+@media (min-width: 640px) {
+  .links__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

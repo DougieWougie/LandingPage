@@ -1,0 +1,14 @@
+.footer {
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+
+.footer__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer__text {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
