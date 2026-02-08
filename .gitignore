@@ -33,5 +33,6 @@ Thumbs.db
 # Claude Code
 .claude
 
-# Anything zipped
+# Anything archived
+*.tar
 *.tar.gz
