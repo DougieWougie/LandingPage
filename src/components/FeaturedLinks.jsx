@@ -3,17 +3,6 @@ import './FeaturedLinks.css';
 
 const links = [
   {
-    title: 'LinkedIn',
-    description: 'Professional profile & network',
-    url: 'https://www.linkedin.com/in/dougie-richardson/',
-    color: 'var(--gold)',
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-      </svg>
-    ),
-  },
-  {
     title: 'GitHub',
     description: 'Open source & projects',
     url: 'https://github.com/DougieWougie',
@@ -26,12 +15,28 @@ const links = [
   },
   {
     title: 'Running Paces',
-    description: 'Training pace calculator',
+    description: 'Quickly calculate your pace for any distance and time.',
     url: 'https://run.dougals.me/',
     color: 'var(--terracotta)',
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Tax calculator',
+    description: 'Adjust pre-tax and post-tax deductions to see the difference in take home salary. Accounts for military pensions (not subject to National Insurance).',
+    url: 'https://tax.dougals.me/',
+    color: 'var(--gold)',
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="3" y1="22" x2="21" y2="22"></line>
+        <line x1="6" y1="18" x2="6" y2="11"></line>
+        <line x1="10" y1="18" x2="10" y2="11"></line>
+        <line x1="14" y1="18" x2="14" y2="11"></line>
+        <line x1="18" y1="18" x2="18" y2="11"></line>
+        <polygon points="12 2 2 7 22 7 12 2"></polygon>
       </svg>
     ),
   },
@@ -43,7 +48,7 @@ export function FeaturedLinks() {
   return (
     <section className="links" ref={ref}>
       <div className="links__container">
-        <h2 className="links__heading">Find Me Online</h2>
+        <h2 className="links__heading">Some Projects...</h2>
         <div className="links__grid">
           {links.map((link, i) => (
             <a

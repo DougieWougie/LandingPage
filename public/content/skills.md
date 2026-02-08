@@ -3,16 +3,11 @@
 Tools and technologies I work with regularly.
 
 - Python
-- JavaScript
 - TypeScript
 - React
-- Node.js
-- Docker
-- Kubernetes
+- Containerisation
 - Linux
-- Git
-- PostgreSQL
-- AWS
+- Data architecture
+- Solution architecture
 - CI/CD
-- REST APIs
-- Agile
+- APIs
