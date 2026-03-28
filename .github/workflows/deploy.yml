@@ -49,7 +49,7 @@ jobs:
           username: github-actions
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /opt/docker/myapp
+            cd /opt/docker/landing
             docker compose pull
             docker compose up -d
             docker image prune -f
