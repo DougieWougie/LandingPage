@@ -4,6 +4,8 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 COPY . .
+ARG SITE_VERSION=unknown
+ENV SITE_VERSION=${SITE_VERSION}
 RUN npm run build
 
 # Production stage

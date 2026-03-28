@@ -37,6 +37,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            SITE_VERSION=${{ github.ref_type == 'tag' && github.ref_name || format('v{0}', github.sha) }}
 
   deploy:
     needs: build-and-push
