@@ -10,27 +10,23 @@ const TYPE_SPEED = 60;
 export function BlogCta() {
   const { ref, inView } = useInView({ threshold: 0.5 });
   const [charCount, setCharCount] = useState(0);
-  const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (!inView) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setCharCount(FULL_TEXT.length);
-      setDone(true);
-      return;
-    }
+    const speed = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 0
+      : TYPE_SPEED;
 
     const interval = setInterval(() => {
       setCharCount((prev) => {
         if (prev >= FULL_TEXT.length) {
           clearInterval(interval);
-          setDone(true);
           return prev;
         }
         return prev + 1;
       });
-    }, TYPE_SPEED);
+    }, speed);
 
     return () => clearInterval(interval);
   }, [inView]);
