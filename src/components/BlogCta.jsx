@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useInView } from '../hooks/useInView';
 import './BlogCta.css';
 
@@ -12,14 +12,10 @@ export function BlogCta() {
   const [charCount, setCharCount] = useState(0);
   const [done, setDone] = useState(false);
 
-  const prefersReducedMotion = useCallback(() => {
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }, []);
-
   useEffect(() => {
     if (!inView) return;
 
-    if (prefersReducedMotion()) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setCharCount(FULL_TEXT.length);
       setDone(true);
       return;
@@ -37,7 +33,7 @@ export function BlogCta() {
     }, TYPE_SPEED);
 
     return () => clearInterval(interval);
-  }, [inView, prefersReducedMotion]);
+  }, [inView]);
 
   const visibleText = FULL_TEXT.slice(0, charCount);
   const commandPart = visibleText.slice(0, Math.min(charCount, COMMAND.length));
