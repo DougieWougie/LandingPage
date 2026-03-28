@@ -7,6 +7,7 @@ export function Footer() {
         <p className="footer__text">
           &copy; {new Date().getFullYear()} Dougie Richardson
         </p>
+        <p className="footer__version">{__SITE_VERSION__}</p>
       </div>
     </footer>
   );
