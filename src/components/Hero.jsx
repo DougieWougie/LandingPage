@@ -2,6 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useMarkdown } from '../hooks/useMarkdown';
 import './Hero.css';
+import { BlogCta } from './BlogCta';
 
 export function Hero() {
   const { content, loading } = useMarkdown('/content/intro.md');
@@ -49,6 +50,7 @@ export function Hero() {
               <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
             </div>
           )}
+          <BlogCta />
         </div>
       </div>
 
