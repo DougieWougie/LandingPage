@@ -35,6 +35,7 @@ Thumbs.db
 *.skill
 code-reviewer
 security-reviewer
+.superpowers
 
 # Anything archived
 *.tar
