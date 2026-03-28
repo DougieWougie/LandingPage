@@ -38,6 +38,9 @@
 
 .blog-cta__url {
   color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(212, 168, 67, 0.4);
 }
 
 .blog-cta__cursor {

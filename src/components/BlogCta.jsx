@@ -14,9 +14,11 @@ export function BlogCta() {
   useEffect(() => {
     if (!inView) return;
 
-    const speed = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 0
-      : TYPE_SPEED;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional: skip animation entirely
+      setCharCount(FULL_TEXT.length);
+      return;
+    }
 
     const interval = setInterval(() => {
       setCharCount((prev) => {
@@ -26,7 +28,7 @@ export function BlogCta() {
         }
         return prev + 1;
       });
-    }, speed);
+    }, TYPE_SPEED);
 
     return () => clearInterval(interval);
   }, [inView]);
