@@ -50,8 +50,13 @@ export function BlogCta() {
     >
       <span className="blog-cta__arrow" aria-hidden="true">▶</span>
       <span className="blog-cta__prompt" aria-hidden="true">$</span>
-      <span className="blog-cta__command">{commandPart}</span>
-      <span className="blog-cta__url">{urlPart}</span>
+      <span className="blog-cta__text">
+        <span className="blog-cta__sizer" aria-hidden="true">{FULL_TEXT}</span>
+        <span className="blog-cta__typed">
+          <span className="blog-cta__command">{commandPart}</span>
+          <span className="blog-cta__url">{urlPart}</span>
+        </span>
+      </span>
       <span className="blog-cta__cursor" aria-hidden="true" />
     </a>
   );

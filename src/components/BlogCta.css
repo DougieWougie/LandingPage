@@ -31,9 +31,25 @@
   color: #888;
 }
 
+.blog-cta__text {
+  position: relative;
+  display: inline-block;
+}
+
+.blog-cta__sizer {
+  visibility: hidden;
+  white-space: pre;
+}
+
+.blog-cta__typed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre;
+}
+
 .blog-cta__command {
   color: #e0e0e0;
-  white-space: pre;
 }
 
 .blog-cta__url {
