@@ -11,7 +11,6 @@ try {
 
 export default defineConfig({
   plugins: [react()],
-  assetsInclude: ['**/*.md'],
   define: {
     __SITE_VERSION__: JSON.stringify(siteVersion),
   },

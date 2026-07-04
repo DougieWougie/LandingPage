@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-export function useInView(options = {}) {
+export function useInView({ threshold = 0.1 } = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -15,12 +15,12 @@ export function useInView(options = {}) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.1, ...options }
+      { threshold }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold]);
 
   return { ref, inView };
 }
