@@ -138,3 +138,17 @@ img {
   background: var(--gold);
   color: var(--text-primary);
 }
+
+/* Respect the OS reduced-motion preference: keep end states, drop the motion.
+   Scroll-in elements still reach their --visible state, they just snap there. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
