@@ -45,7 +45,7 @@ export function FeaturedLinks() {
   return (
     <section className="links" ref={ref}>
       <div className="links__container">
-        <h2 className="links__heading">Some Projects...</h2>
+        <h2 className="links__heading">Projects</h2>
         <div className="links__grid">
           {links.map((link, i) => (
             <a

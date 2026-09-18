@@ -20,6 +20,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
+  align-items: start; /* cards size to their own content rather than the tallest */
 }
 
 /* Card */
@@ -89,13 +90,14 @@
   flex-grow: 1;
 }
 
+/* Always faintly visible so the cards read as links on touch devices */
 .links__card-arrow {
   position: absolute;
   top: var(--space-xl);
   right: var(--space-xl);
   color: var(--text-muted);
-  opacity: 0;
-  transform: translate(-4px, 4px);
+  opacity: 0.45;
+  transform: translate(-2px, 2px);
   transition: all var(--transition-base);
 }
 

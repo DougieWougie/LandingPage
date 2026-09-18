@@ -93,6 +93,10 @@
   animation: morphBlob 8s ease-in-out infinite reverse;
 }
 
+[data-theme="dark"] .hero__image-ring {
+  opacity: 0.6; /* gold on navy needs more presence than gold on cream */
+}
+
 @keyframes morphBlob {
 
   0%,
@@ -192,6 +196,14 @@
   bottom: var(--space-xl);
   color: var(--text-muted);
   animation: bounce 2s ease-in-out infinite;
+}
+
+/* On short viewports the hero content runs past the fold and the hint
+   overlaps the blog CTA, so drop it. */
+@media (max-height: 700px) {
+  .hero__scroll-hint {
+    display: none;
+  }
 }
 
 @keyframes bounce {
