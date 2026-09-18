@@ -34,7 +34,7 @@ export function Hero() {
             <a href="https://www.linkedin.com/in/dougie-richardson/" className="hero__linkedin" target="_blank" rel="noopener noreferrer">
               <LinkedInIcon />
             </a>
-            <a href="https://github.com/dougiewougie" className="hero__github" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/DougieWougie" className="hero__github" target="_blank" rel="noopener noreferrer">
               <GitHubIcon />
             </a>
           </div>

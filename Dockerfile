@@ -1,5 +1,5 @@
 # Build stage
-FROM node:22-alpine AS build
+FROM node:24-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -9,7 +9,7 @@ ENV SITE_VERSION=${SITE_VERSION}
 RUN npm run build
 
 # Production stage (runs nginx as non-root uid 101)
-FROM nginxinc/nginx-unprivileged:1.27-alpine
+FROM nginxinc/nginx-unprivileged:1.30-alpine
 ARG PORT=8080
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY --chown=nginx:nginx nginx.conf /etc/nginx/conf.d/default.conf

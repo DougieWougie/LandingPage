@@ -16,6 +16,12 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine site version
+        id: version
+        run: echo "value=$(git describe --tags --always)" >> "$GITHUB_OUTPUT"
 
       - uses: docker/login-action@v3
         with:
@@ -38,7 +44,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            SITE_VERSION=${{ github.ref_type == 'tag' && github.ref_name || format('v{0}', github.sha) }}
+            SITE_VERSION=${{ steps.version.outputs.value }}
 
   deploy:
     needs: build-and-push
