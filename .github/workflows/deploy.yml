@@ -77,13 +77,18 @@ jobs:
           # set -e so a failed pull or up fails the job instead of being masked
           # by the prune. Log in with a fresh token each deploy: a stale saved
           # credential on the server makes GHCR return "denied" even for a
-          # public image. --remove-orphans clears the pre-compose "landing"
-          # container that otherwise blocks creation with a name conflict.
+          # public image.
           script: |
             set -e
             cd /opt/docker/landing
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
             docker compose pull
+            # The original container was started outside compose, so compose
+            # cannot replace it and every deploy fails on a name conflict.
+            # Remove it by name if it is still there.
+            if docker container inspect landing >/dev/null 2>&1; then
+              docker rm -f landing
+            fi
             docker compose up -d --remove-orphans
             docker logout ghcr.io
             docker image prune -f
