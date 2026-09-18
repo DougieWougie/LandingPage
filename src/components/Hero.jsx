@@ -13,15 +13,18 @@ export function Hero() {
         <div className="hero__image-wrapper">
           <div className="hero__image-decoration" aria-hidden="true" />
           <div className="hero__image-ring" aria-hidden="true" />
-          <img
-            src="/ProfilePicture.png"
-            alt="Dougie Richardson"
-            className="hero__image"
-            width="320"
-            height="320"
-            loading="eager"
-            fetchPriority="high"
-          />
+          <picture>
+            <source srcSet="/ProfilePicture.webp" type="image/webp" />
+            <img
+              src="/ProfilePicture.png"
+              alt="Dougie Richardson"
+              className="hero__image"
+              width="320"
+              height="320"
+              loading="eager"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
 
         <div className="hero__content">
