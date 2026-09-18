@@ -37,7 +37,7 @@ docker run -p 8080:8080 dougie-landing-page
 
 ## Deployment
 
-Push to `main` triggers `.github/workflows/deploy.yml`: builds the Docker image, pushes to `ghcr.io/dougiewougie/landingpage`, then SSHes to the server and runs `docker compose pull && up -d` from `/opt/docker/landing/`. `docker-compose.yml` in the repo is the file copied to the server.
+Push to `main` triggers `.github/workflows/deploy.yml`: builds the Docker image, pushes to `ghcr.io/dougiewougie/landingpage`, then SSHes to the server and runs `docker compose pull && up -d` from `/opt/docker/landing/`. `docker-compose.yml` in the repo is the file copied to the server. It publishes no host port: the container joins the external `proxy` Docker network and nginx-proxy-manager forwards dougals.me to `landing:8080`. Host port 8080 on the server is taken by WordPress, so never add a `ports` mapping to that file.
 
 nginx notes: `security-headers.conf` is `include`d in every `location` block because nginx drops inherited `add_header` directives once a block adds its own (for `Cache-Control`). Add the include to any new location block.
 

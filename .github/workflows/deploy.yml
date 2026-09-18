@@ -83,12 +83,6 @@ jobs:
             cd /opt/docker/landing
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USER" --password-stdin
             docker compose pull
-            # The original container was started outside compose, so compose
-            # cannot replace it and every deploy fails on a name conflict.
-            # Remove it by name if it is still there.
-            if docker container inspect landing >/dev/null 2>&1; then
-              docker rm -f landing
-            fi
             docker compose up -d --remove-orphans
             docker logout ghcr.io
             docker image prune -f

@@ -1,9 +1,16 @@
+# Production compose file, copied to /opt/docker/landing/ on the server by CI.
+# No host port: nginx-proxy-manager reaches the container as landing:8080
+# over the shared external "proxy" network. Host port 8080 belongs to WordPress.
 services:
   landing:
     image: ghcr.io/dougiewougie/landingpage:latest
     container_name: landing
     restart: unless-stopped
-    ports:
-      - "8080:8080"
+    networks:
+      - proxy
     security_opt:
       - no-new-privileges:true
+
+networks:
+  proxy:
+    external: true
