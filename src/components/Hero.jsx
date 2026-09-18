@@ -1,6 +1,4 @@
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import intro from '../content/intro.md?raw';
+import introHtml from '../content/intro.md';
 import { GitHubIcon, LinkedInIcon } from './icons';
 import './Hero.css';
 import { BlogCta } from './BlogCta';
@@ -41,9 +39,8 @@ export function Hero() {
             </a>
           </div>
 
-          <div className="hero__intro">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{intro}</ReactMarkdown>
-          </div>
+          {/* Content is repo-owned markdown rendered to HTML at build time */}
+          <div className="hero__intro" dangerouslySetInnerHTML={{ __html: introHtml }} />
           <BlogCta />
         </div>
       </div>

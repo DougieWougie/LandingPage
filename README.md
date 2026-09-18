@@ -31,7 +31,7 @@ docker run -p 3000:3000 dougie-landing-page
 
 ## Editing Content
 
-All text is driven by markdown files in `src/content/`, bundled at build time:
+All text is driven by markdown files in `src/content/`, rendered to HTML at build time by a small Vite plugin (no markdown parser ships to the browser):
 
 | File | Section |
 |------|---------|

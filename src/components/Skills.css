@@ -17,7 +17,7 @@
   margin: 0 auto;
 }
 
-.skills__heading {
+.skills__content h2 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
   font-weight: 700;
   text-align: center;
@@ -25,21 +25,24 @@
   letter-spacing: -0.02em;
 }
 
-.skills__text {
+.skills__content p {
   text-align: center;
   color: var(--text-secondary);
   margin-bottom: var(--space-2xl);
   font-size: 1.05rem;
 }
 
-.skills__tags {
+.skills__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
   justify-content: center;
 }
 
-.skills__tag {
+.skills__content li {
   display: inline-flex;
   align-items: center;
   padding: var(--space-sm) var(--space-md);
@@ -53,24 +56,24 @@
   cursor: default;
 }
 
-.skills__tag:hover {
+.skills__content li:hover {
   border-color: var(--gold);
   color: var(--gold);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow);
 }
 
-.skills__tag:nth-child(3n+1):hover {
+.skills__content li:nth-child(3n+1):hover {
   border-color: var(--gold);
   color: var(--gold);
 }
 
-.skills__tag:nth-child(3n+2):hover {
+.skills__content li:nth-child(3n+2):hover {
   border-color: var(--olive);
   color: var(--olive);
 }
 
-.skills__tag:nth-child(3n):hover {
+.skills__content li:nth-child(3n):hover {
   border-color: var(--terracotta);
   color: var(--terracotta);
 }

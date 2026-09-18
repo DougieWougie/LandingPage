@@ -28,7 +28,7 @@ docker run -p 8080:8080 dougie-landing-page
 
 ## Architecture
 
-- **Content is markdown, bundled at build time.** `src/content/intro.md` and `src/content/skills.md` are imported with Vite's `?raw` suffix and rendered by `react-markdown` + `remark-gfm`. Editing copy means editing those files, not JSX. `Skills.jsx` remaps markdown elements (`ul` -> tag container, `li` -> tag pill) via the `components` prop, so the skills list structure in the markdown matters.
+- **Content is markdown, rendered to HTML at build time.** `src/content/intro.md` and `src/content/skills.md` are imported as plain `.md` modules; the `markdown-to-html` plugin in `vite.config.js` runs `marked` on them and exports an HTML string, so no markdown parser ships to the browser. Components inject it with `dangerouslySetInnerHTML` (safe because the content is repo-owned). Editing copy means editing those files, not JSX. `Skills.css` styles the raw `h2`, `p`, `ul` and `li` elements under `.skills__content`, so the structure of `skills.md` matters.
 - **Theming** is CSS custom properties in `src/index.css`. `:root` holds the light palette; `[data-theme="dark"]` overrides it. `useTheme` sets `data-theme` on `<html>`, persisting to localStorage and falling back to `prefers-color-scheme`. New colours must be defined in both blocks.
 - **Scroll-in animations** use `useInView` (one-shot IntersectionObserver). Components toggle a `--visible` BEM modifier class; CSS does the animation. `BlogCta` also honours `prefers-reduced-motion` by skipping its typing animation.
 - **Styling convention**: one CSS file co-located per component, BEM-style class names (`block__element--modifier`). No CSS modules, no CSS-in-JS.
