@@ -69,22 +69,22 @@
 
 .skills__content li:hover {
   border-color: var(--gold);
-  color: var(--gold);
+  color: var(--gold-text);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow);
 }
 
 .skills__content li:nth-child(3n+1):hover {
   border-color: var(--gold);
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .skills__content li:nth-child(3n+2):hover {
   border-color: var(--olive);
-  color: var(--olive);
+  color: var(--olive-text);
 }
 
 .skills__content li:nth-child(3n):hover {
   border-color: var(--terracotta);
-  color: var(--terracotta);
+  color: var(--terracotta-text);
 }

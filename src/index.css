@@ -26,6 +26,12 @@
   --terracotta-light: #D9956F;
   --terracotta-dark: #A5603B;
 
+  /* Accents for text: the base shades fail WCAG AA contrast on the light
+     backgrounds, so text uses these darker shades (>= 4.5:1) */
+  --gold-text: #82631E;
+  --olive-text: #4F5D2A;
+  --terracotta-text: #9A5835;
+
   /* Light mode (default) */
   --bg-primary: #FAF7F2;
   --bg-secondary: #F0EBE1;
@@ -78,6 +84,9 @@
   --gold: #E8C76A;
   --olive: #8FA04E;
   --terracotta: #D9956F;
+  --gold-text: #E8C76A;
+  --olive-text: #8FA04E;
+  --terracotta-text: #D9956F;
 
   color-scheme: dark;
 }

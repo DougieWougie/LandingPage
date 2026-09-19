@@ -172,14 +172,14 @@
 }
 
 .hero__intro a {
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 500;
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition-fast);
 }
 
 .hero__intro a:hover {
-  border-color: var(--gold);
+  border-color: var(--gold-text);
 }
 
 .hero__link a {
@@ -187,7 +187,7 @@
 }
 
 .hero__link a:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 /* Scroll hint */
