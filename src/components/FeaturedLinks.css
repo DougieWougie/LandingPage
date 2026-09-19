@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-lg);
-  align-items: start; /* cards size to their own content rather than the tallest */
+  /* default align-items: stretch makes every card in a row match the tallest */
 }
 
 /* Card */

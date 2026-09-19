@@ -3,7 +3,7 @@
 // Mirrors the logic in src/hooks/useTheme.js.
 (function () {
   var theme;
-  try { theme = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
+  try { theme = localStorage.getItem('theme'); } catch { /* storage blocked */ }
   if (theme !== 'light' && theme !== 'dark') {
     theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
