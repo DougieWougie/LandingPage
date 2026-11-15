@@ -28,7 +28,7 @@ docker run -p 8080:8080 dougie-landing-page
 
 ## Architecture
 
-- **Content is markdown, rendered to HTML at build time.** `src/content/intro.md` and `src/content/skills.md` are imported as plain `.md` modules; the `markdown-to-html` plugin in `vite.config.js` runs `marked` on them and exports an HTML string, so no markdown parser ships to the browser. Components inject it with `dangerouslySetInnerHTML` (safe because the content is repo-owned). Editing copy means editing those files, not JSX. `Skills.css` styles the raw `h2`, `p`, `ul` and `li` elements under `.skills__content`, so the structure of `skills.md` matters.
+- **Content is markdown, rendered to HTML at build time.** `src/content/intro.md`, `src/content/forage.md` and `src/content/skills.md` are imported as plain `.md` modules; the `markdown-to-html` plugin in `vite.config.js` runs `marked` on them and exports an HTML string, so no markdown parser ships to the browser. Components inject it with `dangerouslySetInnerHTML` (safe because the content is repo-owned). Editing copy means editing those files, not JSX. `Skills.css` styles the raw `h2`, `p`, `ul` and `li` elements under `.skills__content`, so the structure of `skills.md` matters.
 - **Theming** is CSS custom properties in `src/index.css`. `public/theme.js` is a classic blocking script in `index.html` that sets `data-theme` before first paint (no dark-mode flash); it duplicates the resolution logic in `useTheme`, so change both together. `:root` holds the light palette; `[data-theme="dark"]` overrides it. `useTheme` sets `data-theme` on `<html>`, persisting to localStorage and falling back to `prefers-color-scheme`. New colours must be defined in both blocks.
 - **Scroll-in animations** use `useInView` (one-shot IntersectionObserver). Components toggle a `--visible` BEM modifier class; CSS does the animation. `BlogCta` also honours `prefers-reduced-motion` by skipping its typing animation.
 - **Styling convention**: one CSS file co-located per component, BEM-style class names (`block__element--modifier`). No CSS modules, no CSS-in-JS.
@@ -43,4 +43,4 @@ nginx notes: `security-headers.conf` is `include`d in every `location` block bec
 
 ## Design docs
 
-`docs/superpowers/specs/` and `docs/superpowers/plans/` hold feature specs and implementation plans (currently the Blog CTA). Check there for intent before changing a component's behaviour.
+`docs/superpowers/specs/` and `docs/superpowers/plans/` hold feature specs and implementation plans (currently the Blog CTA and the Forage CTA). Check there for intent before changing a component's behaviour.

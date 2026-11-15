@@ -51,6 +51,7 @@ the accent.
 | Link / accent text: gold | `--gold-text` | `#82631E` |
 | Accent text: olive | `--olive-text` | `#4F5D2A` |
 | Accent text: terracotta | `--terracotta-text` | `#9A5835` |
+| Text on a solid accent fill (buttons) | `--on-accent` | `#1A1A2E` |
 
 ## Dark mode
 
@@ -71,6 +72,7 @@ the accent.
 | Link / accent text: gold | `--gold-text` | `#E8C76A` |
 | Accent text: olive | `--olive-text` | `#8FA04E` |
 | Accent text: terracotta | `--terracotta-text` | `#D9956F` |
+| Text on a solid accent fill (buttons) | `--on-accent` | `#1A1A2E` |
 
 The two modes are inverses of each other: the dark page background is the light mode text
 colour (`#1A1A2E`), and the dark mode text is the light secondary background (`#F0EBE1`).
